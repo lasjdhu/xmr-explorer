@@ -1,0 +1,88 @@
+"use client"
+
+import Link from "next/link"
+import { Menu } from "lucide-react"
+import { useState } from "react"
+
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
+
+export function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <Image
+            className="dark:invert"
+            src="/images/monero-logo.png"
+            alt="Next.js logo"
+            width={40}
+            height={40}
+            priority
+          />
+          <span>XMR Explorer</span>
+        </Link>
+
+        <nav className="hidden md:flex ml-auto items-center gap-6">
+          <Link href="/blocks" className="text-sm font-medium transition-colors hover:text-primary">
+            Blocks
+          </Link>
+          <Link href="/tx" className="text-sm font-medium transition-colors hover:text-primary">
+            Transactions
+          </Link>
+          <Link href="/address" className="text-sm font-medium transition-colors hover:text-primary">
+            Addresses
+          </Link>
+          <Link href="/stats" className="text-sm font-medium transition-colors hover:text-primary">
+            Stats
+          </Link>
+        </nav>
+
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="md:hidden ml-auto">
+            <Button variant="outline" size="icon" aria-label="Menu">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[240px] sm:w-[300px]">
+            <nav className="flex flex-col gap-4 mt-8">
+              <Link
+                href="/blocks"
+                className="text-base font-medium transition-colors hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Blocks
+              </Link>
+              <Link
+                href="/tx"
+                className="text-base font-medium transition-colors hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Transactions
+              </Link>
+              <Link
+                href="/address"
+                className="text-base font-medium transition-colors hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Addresses
+              </Link>
+              <Link
+                href="/stats"
+                className="text-base font-medium transition-colors hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Stats
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </header>
+  )
+}
+

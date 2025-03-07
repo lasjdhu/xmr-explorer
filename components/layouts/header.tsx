@@ -7,6 +7,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
+import { ModeToggle } from "../mode-toggle"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,20 +27,23 @@ export function Header() {
           <span>XMR Explorer</span>
         </Link>
 
-        <nav className="hidden md:flex ml-auto items-center gap-6">
-          <Link href="/blocks" className="text-sm font-medium transition-colors hover:text-primary">
-            Blocks
-          </Link>
-          <Link href="/tx" className="text-sm font-medium transition-colors hover:text-primary">
-            Transactions
-          </Link>
-          <Link href="/address" className="text-sm font-medium transition-colors hover:text-primary">
-            Addresses
-          </Link>
-          <Link href="/stats" className="text-sm font-medium transition-colors hover:text-primary">
-            Stats
-          </Link>
-        </nav>
+        <div className="hidden md:flex ml-auto items-center">
+          <nav className="flex gap-6 mr-6">
+            <Link href="/blocks" className="text-sm font-medium transition-colors hover:text-primary">
+              Blocks
+            </Link>
+            <Link href="/tx" className="text-sm font-medium transition-colors hover:text-primary">
+              Transactions
+            </Link>
+            <Link href="/address" className="text-sm font-medium transition-colors hover:text-primary">
+              Addresses
+            </Link>
+            <Link href="/stats" className="text-sm font-medium transition-colors hover:text-primary">
+              Stats
+            </Link>
+          </nav>
+          <ModeToggle />
+        </div>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden ml-auto">
@@ -79,6 +83,7 @@ export function Header() {
                 Stats
               </Link>
             </nav>
+            <ModeToggle />
           </SheetContent>
         </Sheet>
       </div>

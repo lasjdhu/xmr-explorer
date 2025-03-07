@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Github } from "lucide-react"
 
 export function Footer() {
   return (
@@ -15,19 +14,12 @@ export function Footer() {
             href="https://github.com/lasjdhu/xmr-explorer"
             target="_blank"
             rel="noreferrer"
-            className="text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-foreground"
           >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
+            GitHub
           </Link>
           <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
             About
-          </Link>
-          <Link href="/api" className="text-sm text-muted-foreground hover:text-foreground">
-            API
-          </Link>
-          <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-            Privacy
           </Link>
         </div>
       </div>

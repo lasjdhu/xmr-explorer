@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -18,12 +18,14 @@ export function Footer() {
           >
             GitHub
           </Link>
-          <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            href="/about"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             About
           </Link>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

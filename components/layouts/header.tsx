@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Menu } from "lucide-react"
-import { useState } from "react"
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import Image from "next/image"
-import { ThemeToggle } from "../custom/theme/theme-toggle"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
+import { ThemeToggle } from "../custom/theme/theme-toggle";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,16 +29,28 @@ export function Header() {
 
         <div className="hidden md:flex ml-auto items-center">
           <nav className="flex gap-6 mr-6">
-            <Link href="/blocks" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/blocks"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Blocks
             </Link>
-            <Link href="/tx" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/tx"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Transactions
             </Link>
-            <Link href="/address" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/address"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Addresses
             </Link>
-            <Link href="/stats" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/stats"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Stats
             </Link>
           </nav>
@@ -88,6 +100,5 @@ export function Header() {
         </Sheet>
       </div>
     </header>
-  )
+  );
 }
-

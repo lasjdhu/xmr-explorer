@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"
+import { Inter } from "next/font/google";
 import "@/styles/global.css";
 import { Header } from "@/components/layouts/header";
 import { Footer } from "@/components/layouts/footer";
 import { ThemeProvider } from "@/components/custom/theme/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Monero Blockchain Explorer",
-  description: "Explore the Monero blockchain - view blocks, transactions, and addresses with complete privacy.",
-}
+  description:
+    "Explore the Monero blockchain - view blocks, transactions, and addresses with complete privacy.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -32,5 +33,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

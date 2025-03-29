@@ -1,11 +1,25 @@
-import Link from "next/link"
-import { ArrowRight, Clock, Database, Search } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, Clock, Database, Search } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default async function Home() {
   // This would be replaced with actual API calls to fetch Monero blockchain data
@@ -20,7 +34,7 @@ export default async function Home() {
     transactions24h: 4231,
     emissionTotal: "18,132,912 XMR",
     circulatingSupply: "18,132,912 XMR",
-  }
+  };
 
   // Sample recent blocks data
   const recentBlocks = [
@@ -59,7 +73,7 @@ export default async function Home() {
       txCount: 13,
       time: "10 minutes ago",
     },
-  ]
+  ];
 
   // Sample recent transactions data
   const recentTransactions = [
@@ -93,19 +107,26 @@ export default async function Home() {
       fee: "0.0003 XMR",
       time: "11 minutes ago",
     },
-  ]
+  ];
 
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Monero Blockchain Explorer</h1>
+        <h1 className="text-4xl font-bold tracking-tight">
+          Monero Blockchain Explorer
+        </h1>
         <p className="text-muted-foreground max-w-[700px]">
-          Explore the Monero blockchain - view blocks, transactions, and addresses with complete privacy.
+          Explore the Monero blockchain - view blocks, transactions, and
+          addresses with complete privacy.
         </p>
         <div className="w-full max-w-md flex items-center space-x-2">
           <div className="relative flex-1">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input type="search" placeholder="Search by block height, hash, transaction or address" className="pl-8" />
+            <Input
+              type="search"
+              placeholder="Search by block height, hash, transaction or address"
+              className="pl-8"
+            />
           </div>
           <Button type="submit">Search</Button>
         </div>
@@ -114,12 +135,18 @@ export default async function Home() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Blockchain Height</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Blockchain Height
+            </CardTitle>
             <Database className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.height.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground">Last block: {stats.lastBlockTime}</p>
+            <div className="text-2xl font-bold">
+              {stats.height.toLocaleString()}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Last block: {stats.lastBlockTime}
+            </p>
           </CardContent>
         </Card>
         <Card>
@@ -140,12 +167,16 @@ export default async function Home() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.hashRate}</div>
-            <p className="text-xs text-muted-foreground">Difficulty: {stats.difficulty}</p>
+            <p className="text-xs text-muted-foreground">
+              Difficulty: {stats.difficulty}
+            </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Transactions (24h)</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Transactions (24h)
+            </CardTitle>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -160,18 +191,26 @@ export default async function Home() {
             </svg>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.transactions24h.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground">Avg block time: {stats.averageBlockTime}</p>
+            <div className="text-2xl font-bold">
+              {stats.transactions24h.toLocaleString()}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Avg block time: {stats.averageBlockTime}
+            </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Circulating Supply</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Circulating Supply
+            </CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.circulatingSupply}</div>
-            <p className="text-xs text-muted-foreground">Last reward: {stats.lastBlockReward}</p>
+            <p className="text-xs text-muted-foreground">
+              Last reward: {stats.lastBlockReward}
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -185,7 +224,9 @@ export default async function Home() {
           <Card>
             <CardHeader>
               <CardTitle>Recent Blocks</CardTitle>
-              <CardDescription>The most recently mined blocks on the Monero blockchain.</CardDescription>
+              <CardDescription>
+                The most recently mined blocks on the Monero blockchain.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Table>
@@ -202,12 +243,18 @@ export default async function Home() {
                   {recentBlocks.map((block) => (
                     <TableRow key={block.height}>
                       <TableCell className="font-medium">
-                        <Link href={`/blocks/${block.height}`} className="hover:underline">
+                        <Link
+                          href={`/blocks/${block.height}`}
+                          className="hover:underline"
+                        >
                           {block.height}
                         </Link>
                       </TableCell>
                       <TableCell className="font-mono text-xs truncate max-w-[150px]">
-                        <Link href={`/blocks/${block.hash}`} className="hover:underline">
+                        <Link
+                          href={`/blocks/${block.hash}`}
+                          className="hover:underline"
+                        >
                           {block.hash}
                         </Link>
                       </TableCell>
@@ -233,7 +280,9 @@ export default async function Home() {
           <Card>
             <CardHeader>
               <CardTitle>Recent Transactions</CardTitle>
-              <CardDescription>The most recent transactions on the Monero blockchain.</CardDescription>
+              <CardDescription>
+                The most recent transactions on the Monero blockchain.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Table>
@@ -249,7 +298,10 @@ export default async function Home() {
                   {recentTransactions.map((tx) => (
                     <TableRow key={tx.hash}>
                       <TableCell className="font-mono text-xs truncate max-w-[250px]">
-                        <Link href={`/tx/${tx.hash}`} className="hover:underline">
+                        <Link
+                          href={`/tx/${tx.hash}`}
+                          className="hover:underline"
+                        >
                           {tx.hash}
                         </Link>
                       </TableCell>
@@ -278,10 +330,16 @@ export default async function Home() {
           <Card className="transition-all hover:shadow-md">
             <CardHeader>
               <CardTitle>Blocks Explorer</CardTitle>
-              <CardDescription>Browse all blocks in the Monero blockchain</CardDescription>
+              <CardDescription>
+                Browse all blocks in the Monero blockchain
+              </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button variant="ghost" size="sm" className="group-hover:translate-x-1 transition-transform">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="group-hover:translate-x-1 transition-transform"
+              >
                 View Blocks
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -292,10 +350,16 @@ export default async function Home() {
           <Card className="transition-all hover:shadow-md">
             <CardHeader>
               <CardTitle>Transactions Explorer</CardTitle>
-              <CardDescription>Search and view transaction details</CardDescription>
+              <CardDescription>
+                Search and view transaction details
+              </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button variant="ghost" size="sm" className="group-hover:translate-x-1 transition-transform">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="group-hover:translate-x-1 transition-transform"
+              >
                 View Transactions
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -306,10 +370,16 @@ export default async function Home() {
           <Card className="transition-all hover:shadow-md">
             <CardHeader>
               <CardTitle>Network Statistics</CardTitle>
-              <CardDescription>View detailed Monero network statistics</CardDescription>
+              <CardDescription>
+                View detailed Monero network statistics
+              </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button variant="ghost" size="sm" className="group-hover:translate-x-1 transition-transform">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="group-hover:translate-x-1 transition-transform"
+              >
                 View Stats
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -318,7 +388,5 @@ export default async function Home() {
         </Link>
       </div>
     </main>
-  )
+  );
 }
-
-

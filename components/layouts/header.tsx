@@ -7,7 +7,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
-import { ModeToggle } from "../mode-toggle"
+import { ThemeToggle } from "../custom/theme/theme-toggle"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +42,7 @@ export function Header() {
               Stats
             </Link>
           </nav>
-          <ModeToggle />
+          <ThemeToggle />
         </div>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -83,7 +83,7 @@ export function Header() {
                 Stats
               </Link>
             </nav>
-            <ModeToggle />
+            <ThemeToggle />
           </SheetContent>
         </Sheet>
       </div>

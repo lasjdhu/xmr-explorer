@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
-import { ThemeToggle } from "../custom/theme/theme-toggle";
+import { ThemeToggle } from "../custom/theme-toggle";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);

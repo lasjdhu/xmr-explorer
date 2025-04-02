@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchBlock } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { use } from "react";
 
@@ -12,7 +13,7 @@ export default function Block({
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["block", hash],
-    queryFn: () => fetch(`/api/blocks/${hash}`).then((res) => res.json()),
+    queryFn: () => fetchBlock(hash),
   });
 
   if (isLoading) {
@@ -22,8 +23,6 @@ export default function Block({
   if (error) {
     return <h1>Error: {error.message}</h1>;
   }
-
-  console.log(error);
 
   return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }

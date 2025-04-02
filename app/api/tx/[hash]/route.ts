@@ -9,7 +9,7 @@ export async function GET(
 
   try {
     const response = await fetch(
-      `${LOCAL_MONERO_API_URL}/get_block_data/${hash}`,
+      `${LOCAL_MONERO_API_URL}/get_transaction_data/${hash}`,
     );
     const data = await response.json();
 
@@ -23,8 +23,8 @@ export async function GET(
     return NextResponse.json(
       {
         status: "ERROR",
-        error: "Failed to fetch block data",
-        method: "get_block",
+        error: "Failed to fetch transaction data",
+        method: "get_transaction",
         param_value: hash,
       },
       { status: 500 },
